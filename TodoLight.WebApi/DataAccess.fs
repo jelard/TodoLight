@@ -15,6 +15,19 @@ type TodoRepository() =
             select ({Id = t.Id; Name = t.Name; Description = t.Description; DueDate =  (nullableToOption t.DueDate); DoneDate = (nullableToOption t.DoneDate); IsDone = t.IsDone})
         }|> Seq.toList
 
+     member this.Get(id) =
+        use context = DbConnection.GetDataContext()
+
+        let todo = 
+            query {
+                for t in context.Todo do
+                where (t.Id = id)
+                select (t)
+               }|> Seq.head
+
+        {Todo.Id = todo.Id; Name = todo.Name; Description = todo.Description; DueDate =  (nullableToOption todo.DueDate); DoneDate = (nullableToOption todo.DoneDate); IsDone = todo.IsDone}
+        
+
     member this.Add(todo:Todo) =
         use context = DbConnection.GetDataContext()
         let newTodo = new  DbConnection.ServiceTypes.Todo(Id = todo.Id,

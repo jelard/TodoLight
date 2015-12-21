@@ -19,3 +19,24 @@ c:\users\jmacalino\documents\visual studio 2015\Projects\TodoLight\TodoLight.Web
 c:\users\jmacalino\documents\visual studio 2015\Projects\TodoLight\TodoLight.WebApi\bin\pub.config
 c:\users\jmacalino\documents\visual studio 2015\Projects\TodoLight\TodoLight.WebApi\obj\Debug\TodoLight.WebApi.dll
 c:\users\jmacalino\documents\visual studio 2015\Projects\TodoLight\TodoLight.WebApi\obj\Debug\TodoLight.WebApi.pdb
+C:\code\TodoLight\TodoLight.WebApi\bin\TodoLight.WebApi.dll.config
+C:\code\TodoLight\TodoLight.WebApi\bin\TodoLight.WebApi.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\TodoLight.WebApi.pdb
+C:\code\TodoLight\TodoLight.WebApi\bin\Chessie.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\FSharp.Core.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\FSharp.Data.TypeProviders.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\Newtonsoft.Json.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\policy.2.3.FSharp.Core.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Net.Http.Formatting.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Web.Http.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Web.Http.WebHost.dll
+C:\code\TodoLight\TodoLight.WebApi\bin\Chessie.pdb
+C:\code\TodoLight\TodoLight.WebApi\bin\Chessie.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\FSharp.Core.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\Newtonsoft.Json.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Net.Http.Formatting.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Web.Http.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\System.Web.Http.WebHost.xml
+C:\code\TodoLight\TodoLight.WebApi\bin\pub.config
+C:\code\TodoLight\TodoLight.WebApi\obj\Debug\TodoLight.WebApi.dll
+C:\code\TodoLight\TodoLight.WebApi\obj\Debug\TodoLight.WebApi.pdb

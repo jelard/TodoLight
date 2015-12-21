@@ -115,6 +115,7 @@
     <Compile Include="DomainModel.fs" />
     <Compile Include="DataAccess.fs" />
     <Compile Include="Dtos.fs" />
+    <Compile Include="Commands.fs" />
     <Compile Include="Controllers.fs" />
     <Content Include="Global.asax" />
     <Compile Include="Global.asax.fs">

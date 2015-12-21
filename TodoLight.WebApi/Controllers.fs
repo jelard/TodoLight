@@ -7,29 +7,28 @@ open System.Net
 open System.Net.Http
 open System.Web.Http
 open System.Web.Http.Results
-open TodoLight.Dtos
-open TodoLight.DomainModel
 open TodoLight.DataAccess
+open TodoLight.Commands.Commands
+open TodoLight.Dtos
 open Chessie
 
 [<RoutePrefix("api/todo")>]
 type TodoController(repository:TodoRepository) as this =
     inherit ApiController()
-   
-    let addTodoToDatabase = repository.Add
-    let convertToTodoModel = DtoConverter.dtoToTodo
+ 
     let returnResult content = 
         NegotiatedContentResult(HttpStatusCode.OK, content, this) :> IHttpActionResult
+    
+    new() = new TodoController(TodoRepository())  
 
-    new() = new TodoController(TodoRepository())
-  
-    member this.Get() =
-        "Hello World"    
+    member this.Get(id:Guid) =
+         id
+            |> repository.Get
+            |> DtoConverter.todoToDto
 
     member this.Post( [<FromBody>]dto:TodoDto) : IHttpActionResult =
         dto
-            |> convertToTodoModel
-            |> addTodoToDatabase
+            |> createTodo
             |> returnResult
    
-              
+         
