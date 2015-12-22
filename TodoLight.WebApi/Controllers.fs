@@ -10,14 +10,16 @@ open System.Web.Http.Results
 open TodoLight.DataAccess
 open TodoLight.Commands.Commands
 open TodoLight.Dtos
-open Chessie
+open TodoLight.Rop
 
 [<RoutePrefix("api/todo")>]
 type TodoController(repository:TodoRepository) as this =
     inherit ApiController()
  
     let returnResult content = 
-        NegotiatedContentResult(HttpStatusCode.OK, content, this) :> IHttpActionResult
+       match content with
+            | Success (s, msgs) -> NegotiatedContentResult(HttpStatusCode.OK, s, this) :> IHttpActionResult
+            | Failure msg ->   NegotiatedContentResult(HttpStatusCode.BadRequest, msg, this) :> IHttpActionResult
     
     new() = new TodoController(TodoRepository())  
 

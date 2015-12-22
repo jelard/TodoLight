@@ -2,7 +2,6 @@
 
 open System
 open TodoLight.DomainModel
-open Chessie
 
 [<CLIMutable>]
 type TodoDto = {

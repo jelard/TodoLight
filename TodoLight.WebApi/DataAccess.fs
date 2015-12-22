@@ -3,6 +3,7 @@
 open System
 open Microsoft.FSharp.Data.TypeProviders
 open TodoLight.DomainModel
+open TodoLight.Rop
 
 type internal DbConnection = SqlEntityConnection<ConnectionString = @"Data Source=localhost;Initial Catalog=TodoLight;Integrated Security=True">
 
@@ -29,12 +30,18 @@ type TodoRepository() =
         
 
     member this.Add(todo:Todo) =
-        use context = DbConnection.GetDataContext()
-        let newTodo = new  DbConnection.ServiceTypes.Todo(Id = todo.Id,
-                                                            Name = todo.Name,
-                                                            Description = todo.Description,
-                                                            DueDate = (optionToNullable todo.DueDate),
-                                                            DoneDate = (optionToNullable todo.DoneDate),
-                                                            IsDone = todo.IsDone)
-        context.Todo.AddObject(newTodo)
-        context.DataContext.SaveChanges()
+
+        try
+            use context = DbConnection.GetDataContext()
+            let newTodo = new  DbConnection.ServiceTypes.Todo(Id = todo.Id,
+                                                                Name = todo.Name,
+                                                                Description = todo.Description,
+                                                                DueDate = (optionToNullable todo.DueDate),
+                                                                DoneDate = (optionToNullable todo.DoneDate),
+                                                                IsDone = todo.IsDone)
+            context.Todo.AddObject(newTodo)
+            context.DataContext.SaveChanges() |> ignore
+            
+            succeed()
+        with
+            | ex -> fail ex.Message
