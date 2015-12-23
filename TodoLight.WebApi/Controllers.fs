@@ -21,8 +21,6 @@ type TodoController(repository:TodoRepository) as this =
             | Success (s, msgs) -> NegotiatedContentResult(HttpStatusCode.OK, s, this) :> IHttpActionResult
             | Failure msg ->   NegotiatedContentResult(HttpStatusCode.BadRequest, msg, this) :> IHttpActionResult
     
-    new() = new TodoController(TodoRepository())  
-
     member this.Get(id:Guid) =
          id
             |> repository.Get
